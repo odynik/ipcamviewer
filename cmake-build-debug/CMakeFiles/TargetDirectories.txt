@@ -1,0 +1,3 @@
+C:/Users/odynik/CLionProjects/ipcamviewer/cmake-build-debug/CMakeFiles/gstgtkexample.dir
+C:/Users/odynik/CLionProjects/ipcamviewer/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/odynik/CLionProjects/ipcamviewer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
