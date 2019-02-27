@@ -80,6 +80,11 @@ gstgtkexample_EXTERNAL_OBJECTS =
 gstgtkexample.exe: CMakeFiles/gstgtkexample.dir/main.c.obj
 gstgtkexample.exe: CMakeFiles/gstgtkexample.dir/build.make
 gstgtkexample.exe: C:/gstreamer-dev/1.0/x86_64/lib/libgstreamer-1.0.dll.a
+gstgtkexample.exe: C:/gstreamer-dev/1.0/x86_64/lib/libgobject-2.0.dll.a
+gstgtkexample.exe: C:/gstreamer-dev/1.0/x86_64/lib/libgmodule-2.0.dll.a
+gstgtkexample.exe: C:/gstreamer-dev/1.0/x86_64/lib/libgthread-2.0.dll.a
+gstgtkexample.exe: C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a
+gstgtkexample.exe: C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a
 gstgtkexample.exe: CMakeFiles/gstgtkexample.dir/linklibs.rsp
 gstgtkexample.exe: CMakeFiles/gstgtkexample.dir/objects1.rsp
 gstgtkexample.exe: CMakeFiles/gstgtkexample.dir/link.txt

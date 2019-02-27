@@ -293,13 +293,13 @@ pkgcfg_lib_PKG_GLIB_glib-2.0:FILEPATH=C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.
 pkgcfg_lib_PKG_GLIB_intl:FILEPATH=C:/gstreamer-dev/1.0/x86_64/lib/libintl.dll.a
 
 //Path to a library.
-pkgcfg_lib_PKG_GOBJECT2_glib-2.0:FILEPATH=C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a
+pkgcfg_lib_PKG_GOBJECT_glib-2.0:FILEPATH=C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a
 
 //Path to a library.
-pkgcfg_lib_PKG_GOBJECT2_gobject-2.0:FILEPATH=C:/gstreamer-dev/1.0/x86_64/lib/libgobject-2.0.dll.a
+pkgcfg_lib_PKG_GOBJECT_gobject-2.0:FILEPATH=C:/gstreamer-dev/1.0/x86_64/lib/libgobject-2.0.dll.a
 
 //Path to a library.
-pkgcfg_lib_PKG_GOBJECT2_intl:FILEPATH=C:/gstreamer-dev/1.0/x86_64/lib/libintl.dll.a
+pkgcfg_lib_PKG_GOBJECT_intl:FILEPATH=C:/gstreamer-dev/1.0/x86_64/lib/libintl.dll.a
 
 //Path to a library.
 pkgcfg_lib_PKG_GSTREAMER_glib-2.0:FILEPATH=C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a
@@ -477,7 +477,9 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding GLIB2
-FIND_PACKAGE_MESSAGE_DETAILS_GLIB2:INTERNAL=[C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a][C:/gstreamer-dev/1.0/x86_64/include/glib-2.0][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_GLIB2:INTERNAL=[C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a][C:/gstreamer-dev/1.0/x86_64/include/glib-2.0;C:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include][v()]
+//Details about finding GLib2
+FIND_PACKAGE_MESSAGE_DETAILS_GLib2:INTERNAL=[C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a][C:/gstreamer-dev/1.0/x86_64/include/glib-2.0;C:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include][v()]
 //Details about finding GObject
 FIND_PACKAGE_MESSAGE_DETAILS_GObject:INTERNAL=[C:/gstreamer-dev/1.0/x86_64/include/glib-2.0][C:/gstreamer-dev/1.0/x86_64/lib/libgobject-2.0.dll.a;C:/gstreamer-dev/1.0/x86_64/lib/libgmodule-2.0.dll.a;C:/gstreamer-dev/1.0/x86_64/lib/libgthread-2.0.dll.a;C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a][v()]
 //Details about finding GStreamer
@@ -532,40 +534,40 @@ PKG_GLIB_glib-2.0_INCLUDEDIR:INTERNAL=
 PKG_GLIB_glib-2.0_LIBDIR:INTERNAL=
 PKG_GLIB_glib-2.0_PREFIX:INTERNAL=
 PKG_GLIB_glib-2.0_VERSION:INTERNAL=
-PKG_GOBJECT2_CFLAGS:INTERNAL=-mms-bitfields;-IC:/gstreamer-dev/1.0/x86_64/include/glib-2.0;-IC:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include
-PKG_GOBJECT2_CFLAGS_I:INTERNAL=
-PKG_GOBJECT2_CFLAGS_OTHER:INTERNAL=-mms-bitfields
-PKG_GOBJECT2_FOUND:INTERNAL=1
-PKG_GOBJECT2_INCLUDEDIR:INTERNAL=C:/gstreamer-dev/1.0/x86_64/include
-PKG_GOBJECT2_INCLUDE_DIRS:INTERNAL=C:/gstreamer-dev/1.0/x86_64/include/glib-2.0;C:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include
-PKG_GOBJECT2_LDFLAGS:INTERNAL=-LC:/gstreamer-dev/1.0/x86_64/lib;-lgobject-2.0;-lglib-2.0;-lintl
-PKG_GOBJECT2_LDFLAGS_OTHER:INTERNAL=
-PKG_GOBJECT2_LIBDIR:INTERNAL=C:/gstreamer-dev/1.0/x86_64/lib
-PKG_GOBJECT2_LIBRARIES:INTERNAL=gobject-2.0;glib-2.0;intl
-PKG_GOBJECT2_LIBRARY_DIRS:INTERNAL=C:/gstreamer-dev/1.0/x86_64/lib
-PKG_GOBJECT2_LIBS:INTERNAL=
-PKG_GOBJECT2_LIBS_L:INTERNAL=
-PKG_GOBJECT2_LIBS_OTHER:INTERNAL=
-PKG_GOBJECT2_LIBS_PATHS:INTERNAL=
-PKG_GOBJECT2_PREFIX:INTERNAL=C:/gstreamer-dev/1.0/x86_64
-PKG_GOBJECT2_STATIC_CFLAGS:INTERNAL=-mms-bitfields;-IC:/gstreamer-dev/1.0/x86_64/include/glib-2.0;-IC:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include
-PKG_GOBJECT2_STATIC_CFLAGS_I:INTERNAL=
-PKG_GOBJECT2_STATIC_CFLAGS_OTHER:INTERNAL=-mms-bitfields
-PKG_GOBJECT2_STATIC_INCLUDE_DIRS:INTERNAL=C:/gstreamer-dev/1.0/x86_64/include/glib-2.0;C:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include
-PKG_GOBJECT2_STATIC_LDFLAGS:INTERNAL=-LC:/gstreamer-dev/1.0/x86_64/lib;-Lc:/gstreamer/1.0/x86_64/lib;-LC:/gstreamer-dev/1.0/x86_64/lib;-lgobject-2.0;-lffi;-lglib-2.0;-lintl;-lws2_32;-lole32;-lwinmm;-lshlwapi;-lintl
-PKG_GOBJECT2_STATIC_LDFLAGS_OTHER:INTERNAL=
-PKG_GOBJECT2_STATIC_LIBDIR:INTERNAL=
-PKG_GOBJECT2_STATIC_LIBRARIES:INTERNAL=gobject-2.0;ffi;glib-2.0;intl;ws2_32;ole32;winmm;shlwapi;intl
-PKG_GOBJECT2_STATIC_LIBRARY_DIRS:INTERNAL=C:/gstreamer-dev/1.0/x86_64/lib;c:/gstreamer/1.0/x86_64/lib;C:/gstreamer-dev/1.0/x86_64/lib
-PKG_GOBJECT2_STATIC_LIBS:INTERNAL=
-PKG_GOBJECT2_STATIC_LIBS_L:INTERNAL=
-PKG_GOBJECT2_STATIC_LIBS_OTHER:INTERNAL=
-PKG_GOBJECT2_STATIC_LIBS_PATHS:INTERNAL=
-PKG_GOBJECT2_VERSION:INTERNAL=2.54.3
-PKG_GOBJECT2_gobject-2.0_INCLUDEDIR:INTERNAL=
-PKG_GOBJECT2_gobject-2.0_LIBDIR:INTERNAL=
-PKG_GOBJECT2_gobject-2.0_PREFIX:INTERNAL=
-PKG_GOBJECT2_gobject-2.0_VERSION:INTERNAL=
+PKG_GOBJECT_CFLAGS:INTERNAL=-mms-bitfields;-IC:/gstreamer-dev/1.0/x86_64/include/glib-2.0;-IC:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include
+PKG_GOBJECT_CFLAGS_I:INTERNAL=
+PKG_GOBJECT_CFLAGS_OTHER:INTERNAL=-mms-bitfields
+PKG_GOBJECT_FOUND:INTERNAL=1
+PKG_GOBJECT_INCLUDEDIR:INTERNAL=C:/gstreamer-dev/1.0/x86_64/include
+PKG_GOBJECT_INCLUDE_DIRS:INTERNAL=C:/gstreamer-dev/1.0/x86_64/include/glib-2.0;C:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include
+PKG_GOBJECT_LDFLAGS:INTERNAL=-LC:/gstreamer-dev/1.0/x86_64/lib;-lgobject-2.0;-lglib-2.0;-lintl
+PKG_GOBJECT_LDFLAGS_OTHER:INTERNAL=
+PKG_GOBJECT_LIBDIR:INTERNAL=C:/gstreamer-dev/1.0/x86_64/lib
+PKG_GOBJECT_LIBRARIES:INTERNAL=gobject-2.0;glib-2.0;intl
+PKG_GOBJECT_LIBRARY_DIRS:INTERNAL=C:/gstreamer-dev/1.0/x86_64/lib
+PKG_GOBJECT_LIBS:INTERNAL=
+PKG_GOBJECT_LIBS_L:INTERNAL=
+PKG_GOBJECT_LIBS_OTHER:INTERNAL=
+PKG_GOBJECT_LIBS_PATHS:INTERNAL=
+PKG_GOBJECT_PREFIX:INTERNAL=C:/gstreamer-dev/1.0/x86_64
+PKG_GOBJECT_STATIC_CFLAGS:INTERNAL=-mms-bitfields;-IC:/gstreamer-dev/1.0/x86_64/include/glib-2.0;-IC:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include
+PKG_GOBJECT_STATIC_CFLAGS_I:INTERNAL=
+PKG_GOBJECT_STATIC_CFLAGS_OTHER:INTERNAL=-mms-bitfields
+PKG_GOBJECT_STATIC_INCLUDE_DIRS:INTERNAL=C:/gstreamer-dev/1.0/x86_64/include/glib-2.0;C:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include
+PKG_GOBJECT_STATIC_LDFLAGS:INTERNAL=-LC:/gstreamer-dev/1.0/x86_64/lib;-Lc:/gstreamer/1.0/x86_64/lib;-LC:/gstreamer-dev/1.0/x86_64/lib;-lgobject-2.0;-lffi;-lglib-2.0;-lintl;-lws2_32;-lole32;-lwinmm;-lshlwapi;-lintl
+PKG_GOBJECT_STATIC_LDFLAGS_OTHER:INTERNAL=
+PKG_GOBJECT_STATIC_LIBDIR:INTERNAL=
+PKG_GOBJECT_STATIC_LIBRARIES:INTERNAL=gobject-2.0;ffi;glib-2.0;intl;ws2_32;ole32;winmm;shlwapi;intl
+PKG_GOBJECT_STATIC_LIBRARY_DIRS:INTERNAL=C:/gstreamer-dev/1.0/x86_64/lib;c:/gstreamer/1.0/x86_64/lib;C:/gstreamer-dev/1.0/x86_64/lib
+PKG_GOBJECT_STATIC_LIBS:INTERNAL=
+PKG_GOBJECT_STATIC_LIBS_L:INTERNAL=
+PKG_GOBJECT_STATIC_LIBS_OTHER:INTERNAL=
+PKG_GOBJECT_STATIC_LIBS_PATHS:INTERNAL=
+PKG_GOBJECT_VERSION:INTERNAL=2.54.3
+PKG_GOBJECT_gobject-2.0_INCLUDEDIR:INTERNAL=
+PKG_GOBJECT_gobject-2.0_LIBDIR:INTERNAL=
+PKG_GOBJECT_gobject-2.0_PREFIX:INTERNAL=
+PKG_GOBJECT_gobject-2.0_VERSION:INTERNAL=
 PKG_GSTREAMER_CFLAGS:INTERNAL=-mms-bitfields;-IC:/gstreamer-dev/1.0/x86_64/include/gstreamer-1.0;-IC:/gstreamer-dev/1.0/x86_64/include/glib-2.0;-IC:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include
 PKG_GSTREAMER_CFLAGS_I:INTERNAL=
 PKG_GSTREAMER_CFLAGS_OTHER:INTERNAL=-mms-bitfields
@@ -601,10 +603,10 @@ PKG_GSTREAMER_gstreamer-1.0_LIBDIR:INTERNAL=
 PKG_GSTREAMER_gstreamer-1.0_PREFIX:INTERNAL=
 PKG_GSTREAMER_gstreamer-1.0_VERSION:INTERNAL=
 __pkg_config_arguments_PKG_GLIB:INTERNAL=REQUIRED;glib-2.0
-__pkg_config_arguments_PKG_GOBJECT2:INTERNAL=REQUIRED;gobject-2.0
+__pkg_config_arguments_PKG_GOBJECT:INTERNAL=REQUIRED;gobject-2.0
 __pkg_config_arguments_PKG_GSTREAMER:INTERNAL=REQUIRED;NO_CMAKE_PATH;gstreamer-1.0
 __pkg_config_checked_PKG_GLIB:INTERNAL=1
-__pkg_config_checked_PKG_GOBJECT2:INTERNAL=1
+__pkg_config_checked_PKG_GOBJECT:INTERNAL=1
 __pkg_config_checked_PKG_GSTREAMER:INTERNAL=1
 prefix_result:INTERNAL=C:/gstreamer-dev/1.0/x86_64/lib
 

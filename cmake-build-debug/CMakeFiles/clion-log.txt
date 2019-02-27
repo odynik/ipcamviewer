@@ -1,20 +1,7 @@
 "C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\odynik\CLionProjects\ipcamviewer
--- PKG_CONFIG_PATH: C:\gstreamer-dev\1.0\x86_64\lib\pkgconfig
--- GObject FOUND!!
--- Checking for module 'glib-2.0'
---   Found glib-2.0, version 2.54.3
--- Found GLIB2: C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a  
--- Checking for module 'gstreamer-1.0'
---   Found gstreamer-1.0, version 1.14.4
--- Found GStreamer: C:/gstreamer-dev/1.0/x86_64/lib/libgstreamer-1.0.dll.a  
--- FOUND!!
--- CFLAGS: -mms-bitfields-IC:/gstreamer-dev/1.0/x86_64/include/gstreamer-1.0-IC:/gstreamer-dev/1.0/x86_64/include/glib-2.0-IC:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include
--- LLib: C:/gstreamer-dev/1.0/x86_64/lib/libgstreamer-1.0.dll.a
--- INC: C:/gstreamer-dev/1.0/x86_64/include/gstreamer-1.0
--- CFLAGS: -mms-bitfields-IC:/gstreamer-dev/1.0/x86_64/include/gstreamer-1.0-IC:/gstreamer-dev/1.0/x86_64/include/glib-2.0-IC:/gstreamer-dev/1.0/x86_64/lib/glib-2.0/include
--- LLib: C:/gstreamer-dev/1.0/x86_64/lib/libgstreamer-1.0.dll.a
--- LLIB: C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a
--- LLIB: C:/gstreamer-dev/1.0/x86_64/lib/libgobject-2.0.dll.aC:/gstreamer-dev/1.0/x86_64/lib/libgmodule-2.0.dll.aC:/gstreamer-dev/1.0/x86_64/lib/libgthread-2.0.dll.aC:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a
+-- GObject FOUND!
+-- GLib2 FOUND!
+-- GStreamer FOUND!
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/odynik/CLionProjects/ipcamviewer/cmake-build-debug

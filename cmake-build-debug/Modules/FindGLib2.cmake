@@ -28,8 +28,9 @@ if(PKG_CONFIG_FOUND)
 endif()
 
 find_path(GLIB2_MAIN_INCLUDE_DIR glib.h
+        HINTS ${PKG_GLIB_INCLUDE_DIRS} ${PKG_GLIB_INCLUDEDIR}
         PATH_SUFFIXES glib-2.0
-        HINTS ${PKG_GLIB_INCLUDE_DIRS} ${PKG_GLIB_INCLUDEDIR})
+        )
 
 # search the glibconfig.h include dir under the same root where the library is found
 find_library(GLIB2_LIBRARIES
@@ -48,11 +49,10 @@ if(GLIB2_INTERNAL_INCLUDE_DIR)
     set(GLIB2_INCLUDE_DIR ${GLIB2_INCLUDE_DIR} ${GLIB2_INTERNAL_INCLUDE_DIR})
 endif(GLIB2_INTERNAL_INCLUDE_DIR)
 
-include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(GLIB2  DEFAULT_MSG  GLIB2_LIBRARIES GLIB2_MAIN_INCLUDE_DIR)
-
 mark_as_advanced(GLIB2_INCLUDE_DIR GLIB2_LIBRARIES)
 
+include(FindPackageHandleStandardArgs)
+find_package_handle_standard_args(GLib2  DEFAULT_MSG  GLIB2_LIBRARIES GLIB2_INCLUDE_DIR)
 
 find_program(GLIB2_GENMARSHAL_UTIL glib-genmarshal)
 

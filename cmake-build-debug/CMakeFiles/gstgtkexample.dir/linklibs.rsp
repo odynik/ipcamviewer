@@ -1,1 +1,1 @@
-C:/gstreamer-dev/1.0/x86_64/lib/libgstreamer-1.0.dll.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+C:/gstreamer-dev/1.0/x86_64/lib/libgstreamer-1.0.dll.a C:/gstreamer-dev/1.0/x86_64/lib/libgobject-2.0.dll.a C:/gstreamer-dev/1.0/x86_64/lib/libgmodule-2.0.dll.a C:/gstreamer-dev/1.0/x86_64/lib/libgthread-2.0.dll.a C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a C:/gstreamer-dev/1.0/x86_64/lib/libglib-2.0.dll.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
