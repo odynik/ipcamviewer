@@ -12,9 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efbc5318-0880-4631-a05c-52d301558535" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ipcam_gst.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/gstgtkexample.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/gstgtkexample.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/gstgtkexample.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/gstgtkexample.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,8 +50,42 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+            <state>
+              <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
+              <folding>
+                <element signature="e#4016#4202#0" />
+                <element signature="e#4552#6353#0" />
+                <element signature="e#5933#6119#0" />
+                <element signature="e#5933#6463#0" />
+                <element signature="e#6305#6318#0" />
+                <element signature="e#6306#7820#0" />
+                <element signature="e#7835#7992#0" />
+                <element signature="e#8000#8579#0" />
+                <element signature="e#8793#9149#0" />
+                <element signature="e#8793#9785#0" />
+                <element signature="e#9568#9754#0" />
+                <element signature="e#10233#12384#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ipcam_gst.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/gstreamer-dev/1.0/x86_64/include/gstreamer-1.0/gst/gst.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1819">
+              <folding>
+                <element signature="e#984#1001#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,8 +94,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="544">
-                <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+              <first_editor relative-caret-position="620">
+                <caret line="43" column="82" lean-forward="true" selection-start-line="43" selection-start-column="82" selection-end-line="43" selection-end-column="82" />
               </first_editor>
               <second_editor />
             </state>
@@ -104,7 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CMAKE_MATCH_2</find>
       <find>_pkg_check_modules_pkg_op</find>
       <find>_pkg_check_modules_exist_query</find>
       <find>component</find>
@@ -134,6 +171,7 @@
       <find>GOBJECT_FOUND</find>
       <find>GLIB2_INCLUDE_DIR</find>
       <find>elements</find>
+      <find>.</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,6 +194,7 @@
         <option value="$PROJECT_DIR$/cmake-build-debug/Modules/FindGObject.cmake" />
         <option value="$PROJECT_DIR$/cmake-build-debug/Modules/FindGLib2.cmake" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/ipcam_gst.h" />
         <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
@@ -172,7 +211,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,6 +227,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -242,12 +281,13 @@
       <workItem from="1550831598425" duration="3880000" />
       <workItem from="1550836135783" duration="13924000" />
       <workItem from="1551176600968" duration="24809000" />
-      <workItem from="1551284074038" duration="1268000" />
+      <workItem from="1551284074038" duration="3449000" />
+      <workItem from="1551343156905" duration="5953000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81782000" />
+    <option name="totallyTimeSpent" value="89916000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -262,11 +302,11 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.116204694" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07569297" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32995737" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32932165" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32827735" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.17067833" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934355" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -277,7 +317,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.312026" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.23726977" />
+      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.23726977" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -385,17 +425,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
+    <entry file="file://C:/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/rpcndr.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        <state relative-caret-position="226">
+          <caret line="534" selection-start-line="534" selection-end-line="534" />
         </state>
       </provider>
     </entry>
@@ -420,12 +453,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
+          <folding>
+            <element signature="e#4016#4202#0" />
+            <element signature="e#4552#6353#0" />
+            <element signature="e#5933#6119#0" />
+            <element signature="e#5933#6463#0" />
+            <element signature="e#6305#6318#0" />
+            <element signature="e#6306#7820#0" />
+            <element signature="e#7835#7992#0" />
+            <element signature="e#8000#8579#0" />
+            <element signature="e#8793#9149#0" />
+            <element signature="e#8793#9785#0" />
+            <element signature="e#9568#9754#0" />
+            <element signature="e#10233#12384#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/gstreamer-dev/1.0/x86_64/include/gstreamer-1.0/gst/gst.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1819">
+          <folding>
+            <element signature="e#984#1001#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ipcam_gst.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="544">
-            <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+          <first_editor relative-caret-position="620">
+            <caret line="43" column="82" lean-forward="true" selection-start-line="43" selection-start-column="82" selection-end-line="43" selection-end-column="82" />
           </first_editor>
           <second_editor />
         </state>

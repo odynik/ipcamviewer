@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(gstgtkexample)
 set(CMAKE_C_STANDARD 99)
-add_executable(gstgtkexample main.c)
+add_executable(gstgtkexample main.c ipcam_gst.h)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake-build-debug/Modules/")
 set(PKG_CONFIG_EXECUTABLE "C:\\pkg-config-lite-0.28-1\\bin\\pkg-config")

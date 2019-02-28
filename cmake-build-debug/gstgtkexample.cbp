@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/odynik/CLionProjects/ipcamviewer/ipcam_gst.h">
+			<Option target="gstgtkexample"/>
+		</Unit>
 		<Unit filename="C:/Users/odynik/CLionProjects/ipcamviewer/main.c">
 			<Option target="gstgtkexample"/>
 		</Unit>

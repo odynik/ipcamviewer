@@ -33,3 +33,12 @@ Gstreamer elements,
 5. autovideosink - Show the video stream on the screen.
 
 ![Alt](draw.io/images/ipcam_pipeline.png)
+
+# Code structure
+
+The code structure is changing as the project develops. The current structure is a simple source and header file
+describing the pipeline.
+Directory: Project directory folder
+* ```ipcam_gst.h``` -  Contains the structures and the function declaration of all the functionality related
+with the gstreamer.
+* ```main.c``` -  Contains the main function and the all the functions definition.
