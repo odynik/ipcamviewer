@@ -1,12 +1,19 @@
 #include "ipcam_gst.h"
+#include <string.h>
 
 
 int main(int argc, char *argv[]) {
 
+    IPCamData ipcamdata;
+    DummyCamData dummyvideodata;
     CustomData data;
     GstStateChangeReturn ret;
     gboolean pipelinecreated = FALSE;
     gboolean pipelinebuild = FALSE;
+
+    // Assign the allocated memory of the inner structs to the CustomData struct.
+    data.IPCamData1 = &ipcamdata;
+    data.IPCamData2 = &dummyvideodata;
 
     /* Initialize GStreamer */
     gst_init (&argc, &argv);
@@ -64,7 +71,13 @@ int main(int argc, char *argv[]) {
  * RetVal#1: void
  * */
 static void pad_added_handler (GstElement *src, GstPad *new_pad, GstElement *data) {
-    GstPad *sink_pad = gst_element_get_static_pad (data, "sink");
+    GstPad *sink_pad;
+    //g_print ("The pad-added handler from %s\n",gst_element_get_name(data));
+    if (strcmp(gst_element_get_name(data),"text") == 0)
+        sink_pad = gst_element_get_static_pad (data, "video_sink");
+    else
+        sink_pad = gst_element_get_static_pad (data, "sink");
+
     GstPadLinkReturn ret;
     GstCaps *new_pad_caps = NULL;
     GstStructure *new_pad_struct = NULL;
@@ -111,6 +124,26 @@ static void pad_added_handler (GstElement *src, GstPad *new_pad, GstElement *dat
 }
 
 /**
+ * This is a function to request pads from a Gst Element with "on request" pads.
+ *
+ * Arg#1: GstElement *ElemOnRequestPads
+ * Arg#2: const gchar *pad_template -  Pad template as a string. Check gst-inspect(ie "sink_%u")
+ * RetVal#1: void
+ * */
+GstPad *OnRequestReturnPad(GstElement *ElemOnRequestPads, const gchar *pad_template){
+
+    GstPad *pad;
+    gchar *name;
+
+    pad = gst_element_get_request_pad (ElemOnRequestPads, pad_template);
+    name = gst_pad_get_name (pad);
+
+    g_print ("OnRequest Return Pad: A new pad %s was created from %s\n", name, gst_element_get_name(ElemOnRequestPads));
+    g_free (name);
+    return pad;
+}
+
+/**
  * Group the connections to the pad-added signals.
  *
  * Arg#1: CustomData *data - Pointer to the CustomData structure containing the elements of the pipeline
@@ -119,8 +152,8 @@ static void pad_added_handler (GstElement *src, GstPad *new_pad, GstElement *dat
 void pad_added_signal_connections(CustomData *data){
 
     /* Connect to the pad-added signal for the rtsp source and the decodebin */
-    g_signal_connect (data->IPCamRTSPsrc, "pad-added", G_CALLBACK (pad_added_handler), data->rtph264depayload);
-    g_signal_connect (data->decbin, "pad-added", G_CALLBACK (pad_added_handler), data->videoconv);
+    g_signal_connect (data->IPCamData1->IPCamRTSPsrc, "pad-added", G_CALLBACK (pad_added_handler), data->IPCamData1->rtph264depayload);
+    g_signal_connect (data->IPCamData1->decbin, "pad-added", G_CALLBACK (pad_added_handler), data->IPCamData1->text);
 }
 
 
@@ -133,27 +166,43 @@ void pad_added_signal_connections(CustomData *data){
  * */
 gboolean create_pipeline_elements(CustomData *data){
 
-    /* Create the pipeline elements */
-    data->IPCamRTSPsrc = gst_element_factory_make ("rtspsrc", "source");
-    data->rtph264depayload = gst_element_factory_make ("rtph264depay", "rtph264depayload");
-    data->decbin = gst_element_factory_make ("decodebin", "decbin");
+    /* Create the pipeline elements for IPCam 1 */
+    data->IPCamData1->IPCamRTSPsrc = gst_element_factory_make ("rtspsrc", "source");
+    data->IPCamData1->rtph264depayload = gst_element_factory_make ("rtph264depay", "rtph264depayload");
+    data->IPCamData1->decbin = gst_element_factory_make ("decodebin", "decbin");
+    data->IPCamData1->text = gst_element_factory_make ("textoverlay", "text");
+
+    /* Create the pipeline elements for dummy video input (simulate IPCam2) */
+    data->IPCamData2->videotestsource = gst_element_factory_make ("videotestsrc", "source");
+    data->IPCamData2->text = gst_element_factory_make ("textoverlay", "text");
+
+    /* Create the pipeline elements after the videomixer */
+    data->videomix = gst_element_factory_make ("videomixer", "videomix");
     data->videoconv = gst_element_factory_make ("videoconvert", "videoconv");
     data->videosink = gst_element_factory_make ("autovideosink", "videosink");
 
-    /* Create the empty pipeline */
-    data->pipeline = gst_pipeline_new ("ipcam_pipeline");
+    /**
+     * Create an empty pipeline to include all the IP camera bins.
+     * Create the IP camera bin to include all the IP camera elements.
+     * Create the dummy video bin to include all the dummy video elements.
+     * */
+    data->pipeline = gst_pipeline_new ("the_pipeline");
+    data->IPCamData1->ipcambin = gst_bin_new ("ipcambin1");
+    data->IPCamData2->dummyvideobin = gst_bin_new ("dummyvideobin");
 
     /* Check if the elements could be created */
-    if (!data->pipeline || !data->IPCamRTSPsrc ||
-        !data->rtph264depayload || !data->decbin ||
-        !data->videoconv || !data->videosink) {
+    if (!data->IPCamData1->IPCamRTSPsrc ||
+        !data->IPCamData1->rtph264depayload ||
+        !data->IPCamData1->decbin ||
+        !data->IPCamData1->text ||
+        !data->IPCamData2->videotestsource ||
+        !data->IPCamData2->text ||
+        !data->videomix ||
+        !data->videoconv ||
+        !data->videosink ||
+        !data->pipeline) {
+
         g_printerr ("Not all elements could be created.\n");
-//        g_printerr("pipeline: %s\n", gst_element_get_name(data.pipeline));
-//        g_printerr("IPCamRTSPsrc: %s\n", gst_element_get_name(data.IPCamRTSPsrc));
-//        g_printerr("rtph264depayload: %s\n", gst_element_get_name(data.rtph264depayload));
-//        g_printerr("decbin: %s\n", gst_element_get_name(data.decbin));
-//        g_printerr("videoconv: %s\n", gst_element_get_name(data.videoconv));
-//        g_printerr("videosink: %s\n",gst_element_get_name(data.videosink));
         return FALSE;
     }
     return TRUE;
@@ -168,14 +217,72 @@ gboolean create_pipeline_elements(CustomData *data){
  * RetVal#1: gboolean - TRUE if all the elements have been created. Otherwise returns FALSE.
  * */
 gboolean build_pipeline(CustomData *data){
-    // Add all the elements into the bin(pipeline is a bin).
-    gst_bin_add_many (GST_BIN (data->pipeline), data->IPCamRTSPsrc, data->rtph264depayload, data->decbin , data->videoconv, data->videosink, NULL);
+
+    GstPad *vmix_sinkpad1, *vmix_sinkpad2;
+
+    // Add the IP camera elements in the IP camera bin.
+    gst_bin_add_many(GST_BIN(data->IPCamData1->ipcambin),
+                     data->IPCamData1->IPCamRTSPsrc,
+                     data->IPCamData1->rtph264depayload,
+                     data->IPCamData1->decbin,
+                     data->IPCamData1->text,
+                     NULL);
+    // Add the dummy video elements in the dummy video bin.
+    gst_bin_add_many(GST_BIN(data->IPCamData2->dummyvideobin),
+                     data->IPCamData2->videotestsource,
+                     data->IPCamData2->text,
+                     NULL);
+
+    // Add all the extra elements and bins into the overall pipeline.
+    gst_bin_add_many (GST_BIN (data->pipeline),
+            data->IPCamData1->ipcambin,
+            data->IPCamData2->dummyvideobin,
+            data->videomix,
+            data->videoconv,
+            data->videosink,
+            NULL);
+
+    /**
+     * On Request Pads:
+     * The sink pads (sink_%u) of the videomixer are on request pads. Manually linked.
+     * textoverlay - videomixer (for each channel)
+     *
+     * Dynamic pad-added:
+     * rtspsrc (dynamic src pad) - (static sink pad)rtph264depay
+     * decodebin (dynamic src) - (static video_sink pad)textoverlay
+     * videotestsrc (src)
+     *
+     * */
+
+    // Request the two sink pads from the videomixer
+    vmix_sinkpad1 = OnRequestReturnPad(data->videomix, "sink_%u");
+    vmix_sinkpad2 = OnRequestReturnPad(data->videomix, "sink_%u");
+
     // Link all the elements with static pads. Dynamic pad linking will be handled later with the pad-added signal.
-    if (!gst_element_link(data->rtph264depayload, data->decbin) || !gst_element_link(data->videoconv, data->videosink)) {
+    if (!gst_element_link(data->IPCamData1->rtph264depayload, data->IPCamData1->decbin) ||
+        !gst_element_link_pads(data->IPCamData1->text, "src",data->videomix, gst_pad_get_name(vmix_sinkpad1)) ||
+        !gst_element_link_pads(data->IPCamData2->dummyvideobin, "src",data->IPCamData2->text, "video_sink") ||
+        !gst_element_link_pads(data->IPCamData2->dummyvideobin, "src",data->videomix, gst_pad_get_name(vmix_sinkpad2)) ||
+        !gst_element_link_many(data->videomix, data->videoconv, data->videosink, NULL))
+    {
+
+        g_printerr ("1. Value: %d .\n",gst_element_link(data->IPCamData1->rtph264depayload, data->IPCamData1->decbin));
+        g_printerr ("2. Value: %d .\n",gst_element_link_pads(data->IPCamData1->text, "src",data->videomix, gst_pad_get_name(vmix_sinkpad1)));
+        g_printerr ("3. Value: %d .\n",gst_element_link_pads(data->IPCamData2->dummyvideobin, "src",data->IPCamData2->text, "video_sink"));
+        g_printerr ("4. Value: %d .\n",gst_element_link_pads(data->IPCamData2->dummyvideobin, "src",data->videomix, gst_pad_get_name(vmix_sinkpad2)));
+        //This links cannot be established because of incompatibility issues. try to match the video format for videomixer.
+        g_printerr ("5. Value: %d .\n",gst_element_link_pads(data->videomix, "src", data->videoconv, "sink"));
+        g_printerr ("6. Value: %d .\n",gst_element_link(data->videoconv, data->videosink));
+
         g_printerr ("Elements could not be linked.\n");
+
         gst_object_unref (data->pipeline);
+        gst_object_unref(GST_OBJECT (vmix_sinkpad1));
+        gst_object_unref(GST_OBJECT (vmix_sinkpad2));
+
         return FALSE;
     }
+
     return TRUE;
 }
 
@@ -188,8 +295,22 @@ gboolean build_pipeline(CustomData *data){
 void set_properties(CustomData *data){
 
     /* Set the rtspsrc element properties (URI to play, latency, etc) */
-    g_object_set (G_OBJECT(data->IPCamRTSPsrc), "location", "rtsp://itiuser:itiuser@10.8.1.101:554/videoMain", NULL);
-    g_object_set (G_OBJECT(data->IPCamRTSPsrc), "latency", 0, NULL);
+    g_object_set (G_OBJECT(data->IPCamData1->IPCamRTSPsrc), "location", "rtsp://itiuser:itiuser@10.8.1.101:554/videoMain", NULL);
+    g_object_set (G_OBJECT(data->IPCamData1->IPCamRTSPsrc), "latency", 0, NULL);
+
+    /* Set the textoverlay for IPCam bin element properties (text, font, background, position) */
+    g_object_set (G_OBJECT(data->IPCamData1->text), "valignment", 1, NULL); //bottom - 1
+    g_object_set (G_OBJECT(data->IPCamData1->text), "halignment", 0, NULL); //left - 0
+    g_object_set (G_OBJECT(data->IPCamData1->text), "text", "IPCAM#1", NULL);
+    g_object_set (G_OBJECT(data->IPCamData1->text), "shaded-background", TRUE, NULL);
+
+    /* Set the textoverlay for the dummy video bin element properties (text, font, background, position) */
+    g_object_set (G_OBJECT(data->IPCamData2->text), "valignment", 1, NULL); //bottom - 1
+    g_object_set (G_OBJECT(data->IPCamData2->text), "halignment", 0, NULL); //left - 0
+    g_object_set (G_OBJECT(data->IPCamData2->text), "text", "TESTCAM#2", NULL);
+    g_object_set (G_OBJECT(data->IPCamData2->text), "shaded-background", TRUE, NULL);
+
+    /* Set the videomixer properties to split the screen */
 }
 
 /**

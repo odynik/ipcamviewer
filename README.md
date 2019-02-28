@@ -29,8 +29,9 @@ Gstreamer elements,
 1. rtspsrc - IP camera rstp feed.
 2. rtph264depay - Depayload the rtp packets to acquire the encoded video data.
 3. decodebin - Flexible decoder to decode the video packets.
-4. videoconvert -  
-5. autovideosink - Show the video stream on the screen.
+4. textoverlay - Add some text as a layer over the video.
+5. videoconvert -  
+6. autovideosink - Show the video stream on the screen.
 
 ![Alt](draw.io/images/ipcam_pipeline.png)
 
