@@ -46,7 +46,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-540">
+                <state relative-caret-position="327">
                   <caret line="299" column="62" selection-start-line="299" selection-start-column="56" selection-end-line="299" selection-end-column="62" />
                   <folding>
                     <element signature="e#0#22#0" expanded="true" />
@@ -59,8 +59,8 @@
             <entry file="file://$PROJECT_DIR$/README.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
                 <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="508">
-                    <caret line="41" selection-start-line="41" selection-end-line="41" />
+                  <first_editor relative-caret-position="17">
+                    <caret line="1" selection-start-line="1" selection-end-line="1" />
                   </first_editor>
                   <second_editor />
                 </state>
@@ -236,12 +236,12 @@
       <workItem from="1551176600968" duration="24809000" />
       <workItem from="1551284074038" duration="3449000" />
       <workItem from="1551343156905" duration="32038000" />
-      <workItem from="1551457395576" duration="3332000" />
+      <workItem from="1551457395576" duration="3956000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119333000" />
+    <option name="totallyTimeSpent" value="119957000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -254,6 +254,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.069296375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -449,7 +450,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
+        <state relative-caret-position="327">
           <caret line="299" column="62" selection-start-line="299" selection-start-column="56" selection-end-line="299" selection-end-column="62" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
@@ -461,8 +462,8 @@
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="508">
-            <caret line="41" selection-start-line="41" selection-end-line="41" />
+          <first_editor relative-caret-position="17">
+            <caret line="1" selection-start-line="1" selection-end-line="1" />
           </first_editor>
           <second_editor />
         </state>

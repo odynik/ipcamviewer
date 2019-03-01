@@ -1,4 +1,6 @@
 # ipcamviewer
+[Under development]
+
 This is a simple IP camera viewer application over rtsp. The application is based on gstreamer. It reads a hard coded uri from the IP camera and outputs the videostream.
 
 # Dependencies
@@ -33,6 +35,8 @@ Gstreamer elements,
 4. textoverlay - Add some text as a layer over the video.
 5. videoconvert -  
 6. autovideosink - Show the video stream on the screen.
+7. videotestsrc - Is a sample video source with different patterns. Currently it replaces the other IP camera.
+8. videomixer - It mixes two or more video streams in one display. Split the display to fit all the IP cameras. 
 
 ![Alt](draw.io/images/ipcam_pipeline.png)
 
@@ -47,3 +51,11 @@ Directory: Project directory folder
 * ```ipcam_gst.h``` -  Contains the structures and the function declaration of all the functionality related
 with the gstreamer.
 * ```main.c``` -  Contains the main function and the all the functions definition.
+
+The output of the video of the pipeline should look like this,
+
+![Alt](draw.io/images/videosink.PNG)
+
+# License
+
+All rights reserved until it is defined the final open source license.
