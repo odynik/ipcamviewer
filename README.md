@@ -39,7 +39,7 @@ Gstreamer elements,
 # Code structure
 
 ### gst-launch-1.0 command
-```gst-launch-1.0 videomixer name=m ! videoconvert ! autovideosink sync=false rtspsrc location=rtsp://itiuser:itiuser@10.8.1.101:554/videoMain latency=200 ! rtph264depay ! decodebin ! textoverlay text="CAM1" valignment=top halignment=left shaded-background=true ! m.sink_0 videotestsrc ! textoverlay text="CAM2" valignment=top halignment=left shaded-background=true ! m.sink_1 ```
+```gst-launch-1.0 videomixer name=m ! videoconvert ! autovideosink sync=false rtspsrc location=rtsp://username:password@10.8.1.101:554/videoMain latency=200 ! rtph264depay ! decodebin ! textoverlay text="CAM1" valignment=top halignment=left shaded-background=true ! m.sink_0 videotestsrc ! textoverlay text="CAM2" valignment=top halignment=left shaded-background=true ! m.sink_1 ```
 
 The code structure is changing as the project develops. The current structure is a simple source and header file
 describing the pipeline.
