@@ -24,6 +24,7 @@ Future goals,
 * Multiple targets with different OSes and Processor Archs
 
 # Gstreamer Pipeline example
+
 This pipeline visualizes the gstreamer pipeline coded in the main.c file. It is going to change as the project evolves.
 Gstreamer elements,
 1. rtspsrc - IP camera rstp feed.
@@ -36,6 +37,9 @@ Gstreamer elements,
 ![Alt](draw.io/images/ipcam_pipeline.png)
 
 # Code structure
+
+### gst-launch-1.0 command
+```gst-launch-1.0 videomixer name=m ! videoconvert ! autovideosink sync=false rtspsrc location=rtsp://itiuser:itiuser@10.8.1.101:554/videoMain latency=200 ! rtph264depay ! decodebin ! textoverlay text="CAM1" valignment=top halignment=left shaded-background=true ! m.sink_0 videotestsrc ! textoverlay text="CAM2" valignment=top halignment=left shaded-background=true ! m.sink_1 ```
 
 The code structure is changing as the project develops. The current structure is a simple source and header file
 describing the pipeline.

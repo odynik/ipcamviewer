@@ -14,11 +14,9 @@
     <list default="true" id="efbc5318-0880-4631-a05c-52d301558535" name="Default Changelist" comment="[Runtime Erros] Creation of a new pipeline. With two video sources and a a videomixer.&#10;I push the code in order to save it.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gstgtkexample.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gstgtkexample.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/gstgtkexample.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/gstgtkexample.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/draw.io/images/ipcam_pipeline.png" beforeDir="false" afterPath="$PROJECT_DIR$/draw.io/images/ipcam_pipeline.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/draw.io/ipcam_pipeline.xml" beforeDir="false" afterPath="$PROJECT_DIR$/draw.io/ipcam_pipeline.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipcam_gst.h" beforeDir="false" afterPath="$PROJECT_DIR$/ipcam_gst.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -47,29 +45,27 @@
     <favorites_list name="gstgtkexample" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7099279">
+    <splitter split-orientation="horizontal" split-proportion="0.8642857">
       <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="585">
-                  <caret line="273" column="38" selection-start-line="273" selection-start-column="38" selection-end-line="273" selection-end-column="38" />
+                <state relative-caret-position="-540">
+                  <caret line="299" column="62" selection-start-line="299" selection-start-column="56" selection-end-line="299" selection-end-column="62" />
                   <folding>
                     <element signature="e#0#22#0" expanded="true" />
-                    <element signature="e#1514#4163#0" />
-                    <element signature="e#4165#4351#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/README.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
                 <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="169">
-                    <caret line="31" column="57" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
+                  <first_editor relative-caret-position="359">
+                    <caret line="41" column="3" lean-forward="true" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
                   </first_editor>
                   <second_editor />
                 </state>
@@ -79,7 +75,7 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ipcam_gst.h">
               <provider selected="true" editor-type-id="text-editor">
@@ -95,8 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_pkg_check_modules_pkg_op</find>
-      <find>_pkg_check_modules_exist_query</find>
       <find>component</find>
       <find>PKG_CONFIG_EXECUTABLE</find>
       <find>PKG_GSTREAMER_CFLAGS</find>
@@ -125,6 +119,8 @@
       <find>GLIB2_INCLUDE_DIR</find>
       <find>elements</find>
       <find>.</find>
+      <find>strcmp</find>
+      <find>latenc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -148,9 +144,9 @@
         <option value="$PROJECT_DIR$/cmake-build-debug/Modules/FindGObject.cmake" />
         <option value="$PROJECT_DIR$/cmake-build-debug/Modules/FindGLib2.cmake" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/ipcam_gst.h" />
         <option value="$PROJECT_DIR$/main.c" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -166,6 +162,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,7 +185,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -244,12 +240,13 @@
       <workItem from="1550836135783" duration="13924000" />
       <workItem from="1551176600968" duration="24809000" />
       <workItem from="1551284074038" duration="3449000" />
-      <workItem from="1551343156905" duration="25731000" />
+      <workItem from="1551343156905" duration="32038000" />
+      <workItem from="1551457395576" duration="2739000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109694000" />
+    <option name="totallyTimeSpent" value="118740000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -262,8 +259,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.03891258" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10394456" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32995737" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -278,7 +276,8 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.312026" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.30227518" />
+      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.30227518" />
+      <window_info anchor="bottom" id="GitHub Pull Requests" order="13" weight="0.18201517" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -382,13 +381,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/gstreamer-dev/1.0/x86_64/include/gstreamer-1.0/gst/gstelementfactory.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="86" column="24" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/rpcndr.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
@@ -454,26 +446,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="169">
-            <caret line="31" column="57" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://C:/gstreamer-dev/1.0/x86_64/include/gstreamer-1.0/gst/gstelementfactory.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="86" column="24" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="273" column="38" selection-start-line="273" selection-start-column="38" selection-end-line="273" selection-end-column="38" />
+        <state relative-caret-position="-540">
+          <caret line="299" column="62" selection-start-line="299" selection-start-column="56" selection-end-line="299" selection-end-column="62" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#1514#4163#0" />
-            <element signature="e#4165#4351#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="359">
+            <caret line="41" column="3" lean-forward="true" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

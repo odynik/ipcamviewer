@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
 static void pad_added_handler (GstElement *src, GstPad *new_pad, GstElement *data) {
     GstPad *sink_pad;
     //g_print ("The pad-added handler from %s\n",gst_element_get_name(data));
-    if (strcmp(gst_element_get_name(data),"text") == 0)
+    if (strcmp(gst_element_get_name(data),"ipcam1_text") == 0)
         sink_pad = gst_element_get_static_pad (data, "video_sink");
     else
         sink_pad = gst_element_get_static_pad (data, "sink");
@@ -167,14 +167,14 @@ void pad_added_signal_connections(CustomData *data){
 gboolean create_pipeline_elements(CustomData *data){
 
     /* Create the pipeline elements for IPCam 1 */
-    data->IPCamData1->IPCamRTSPsrc = gst_element_factory_make ("rtspsrc", "source");
+    data->IPCamData1->IPCamRTSPsrc = gst_element_factory_make ("rtspsrc", "ipcam1_source");
     data->IPCamData1->rtph264depayload = gst_element_factory_make ("rtph264depay", "rtph264depayload");
     data->IPCamData1->decbin = gst_element_factory_make ("decodebin", "decbin");
-    data->IPCamData1->text = gst_element_factory_make ("textoverlay", "text");
+    data->IPCamData1->text = gst_element_factory_make ("textoverlay", "ipcam1_text");
 
     /* Create the pipeline elements for dummy video input (simulate IPCam2) */
-    data->IPCamData2->videotestsource = gst_element_factory_make ("videotestsrc", "source");
-    data->IPCamData2->text = gst_element_factory_make ("textoverlay", "text");
+    data->IPCamData2->videotestsource = gst_element_factory_make ("videotestsrc", "vtst_source");
+    data->IPCamData2->text = gst_element_factory_make ("textoverlay", "vtst_text");
 
     /* Create the pipeline elements after the videomixer */
     data->videomix = gst_element_factory_make ("videomixer", "videomix");
@@ -242,6 +242,17 @@ gboolean build_pipeline(CustomData *data){
             data->videosink,
             NULL);
 
+//    gst_bin_add_many (GST_BIN (data->pipeline),
+//                      data->IPCamData1->IPCamRTSPsrc,
+//                      data->IPCamData1->rtph264depayload,
+//                      data->IPCamData1->decbin,
+//                      data->IPCamData1->text,
+//                      data->IPCamData2->videotestsource,
+//                      data->IPCamData2->text,
+//                      data->videomix,
+//                      data->videoconv,
+//                      data->videosink,
+//                      NULL);
     /**
      * On Request Pads:
      * The sink pads (sink_%u) of the videomixer are on request pads. Manually linked.
@@ -260,19 +271,11 @@ gboolean build_pipeline(CustomData *data){
 
     // Link all the elements with static pads. Dynamic pad linking will be handled later with the pad-added signal.
     if (!gst_element_link(data->IPCamData1->rtph264depayload, data->IPCamData1->decbin) ||
-        !gst_element_link_pads(data->IPCamData1->text, "src",data->videomix, gst_pad_get_name(vmix_sinkpad1)) ||
-        !gst_element_link_pads(data->IPCamData2->dummyvideobin, "src",data->IPCamData2->text, "video_sink") ||
-        !gst_element_link_pads(data->IPCamData2->dummyvideobin, "src",data->videomix, gst_pad_get_name(vmix_sinkpad2)) ||
+        !gst_element_link_pads(data->IPCamData1->text, "src", data->videomix, gst_pad_get_name(vmix_sinkpad1)) ||
+        !gst_element_link_pads(data->IPCamData2->videotestsource, "src",data->IPCamData2->text, "video_sink") ||
+        !gst_element_link_pads(data->IPCamData2->text, "src", data->videomix, gst_pad_get_name(vmix_sinkpad2)) ||
         !gst_element_link_many(data->videomix, data->videoconv, data->videosink, NULL))
     {
-
-        g_printerr ("1. Value: %d .\n",gst_element_link(data->IPCamData1->rtph264depayload, data->IPCamData1->decbin));
-        g_printerr ("2. Value: %d .\n",gst_element_link_pads(data->IPCamData1->text, "src",data->videomix, gst_pad_get_name(vmix_sinkpad1)));
-        g_printerr ("3. Value: %d .\n",gst_element_link_pads(data->IPCamData2->dummyvideobin, "src",data->IPCamData2->text, "video_sink"));
-        g_printerr ("4. Value: %d .\n",gst_element_link_pads(data->IPCamData2->dummyvideobin, "src",data->videomix, gst_pad_get_name(vmix_sinkpad2)));
-        //This links cannot be established because of incompatibility issues. try to match the video format for videomixer.
-        g_printerr ("5. Value: %d .\n",gst_element_link_pads(data->videomix, "src", data->videoconv, "sink"));
-        g_printerr ("6. Value: %d .\n",gst_element_link(data->videoconv, data->videosink));
 
         g_printerr ("Elements could not be linked.\n");
 
@@ -311,6 +314,7 @@ void set_properties(CustomData *data){
     g_object_set (G_OBJECT(data->IPCamData2->text), "shaded-background", TRUE, NULL);
 
     /* Set the videomixer properties to split the screen */
+
 }
 
 /**
